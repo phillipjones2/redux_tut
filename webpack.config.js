@@ -2,14 +2,14 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './src/js/ClientApp.jsx',
+  entry: './src/ClientApp.jsx',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.json']
-  },
+  // resolve: {
+  //   extensions: ['', '.js', '.jsx', '.json']
+  // },
   stats: {
     colors: true,
     reasons: true,
@@ -25,8 +25,16 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      },
+      {
         test: /\.jsx?$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },

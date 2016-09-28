@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.5.2",
     "chai": "^3.5.0",
+    "css-loader": "^0.25.0",
     "enzyme": "^2.0.0",
     "eslint": "^2.2.0",
     "eslint-config-standard": "^5.1.0",
@@ -45,10 +46,13 @@
     "nyc": "^6.0.0",
     "react-addons-test-utils": "^0.14.7",
     "sinon": "^1.17.3",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.3.1",
     "webpack": "^1.12.13"
   },
   "directories": {
     "test": "test"
   },
-  "watch":true
+  "watch": true
 }
