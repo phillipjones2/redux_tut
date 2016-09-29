@@ -1,0 +1,22 @@
+{
+  "people": [
+    {
+      "name": "Phillip Jones",
+      "age": 39,
+      "sex": "male",
+      "middleName": "Emerson"
+    },
+    {
+      "name": "Emerson Jones",
+      "age": 7,
+      "sex": "female",
+      "middleName": "Linda"
+    },
+    {
+      "name": "Everly Jones",
+      "age": 4,
+      "sex": "female",
+      "middleName": "Ann"
+    }
+  ]
+}
