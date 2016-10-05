@@ -26255,7 +26255,7 @@
 	  _createClass(Nav, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('nav', { id: 'navContainer' }, _react2.default.createElement(_reactRouter.Link, { to: '/' }, _react2.default.createElement('h1', null, 'Phillip Emerson Jones')), _react2.default.createElement('ul', null, _react2.default.createElement('li', null, 'About'), _react2.default.createElement('li', null, 'Contact'), _react2.default.createElement('li', null, 'Stuff'), _react2.default.createElement(_reactRouter.Link, { to: '/people' }, _react2.default.createElement('li', null, 'People'))));
+	      return _react2.default.createElement('nav', { id: 'navContainer' }, _react2.default.createElement(_reactRouter.Link, { to: '/' }, _react2.default.createElement('h1', null, 'Phillip Emerson Jones')), _react2.default.createElement('ul', null, _react2.default.createElement('li', null, 'About'), _react2.default.createElement('li', null, 'Contact'), _react2.default.createElement('li', null, 'Stuff'), _react2.default.createElement(_reactRouter.Link, { to: '/people' }, _react2.default.createElement('li', null, 'People'))), _react2.default.createElement('img', { src: 'public/window.svg' }));
 	    }
 	  }]);
 
@@ -26299,7 +26299,7 @@
 
 
 	// module
-	exports.push([module.id, "nav {\n  display: flex;\n  justify-content: space-between;\n}\nnav ul {\n  list-style: none;\n}\n", ""]);
+	exports.push([module.id, "nav {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 10px;\n}\nnav ul {\n  list-style: none;\n}\nnav img {\n  height: 45px;\n}\n", ""]);
 
 	// exports
 
@@ -26370,7 +26370,7 @@
 	  _createClass(Landing, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'landing' }, _react2.default.createElement('h1', null, 'Hello'), _react2.default.createElement(_MyTitle2.default, { title: 'Goodbye', color: 'peru' }));
+	      return _react2.default.createElement('div', { className: 'landing' }, _react2.default.createElement('h1', { id: 'landingH1' }, 'Hello'), _react2.default.createElement(_MyTitle2.default, { title: 'Goodbye', color: 'peru' }));
 	    }
 	  }]);
 
@@ -26609,6 +26609,10 @@
 
 	__webpack_require__(240);
 
+	var _ShowPeople = __webpack_require__(243);
+
+	var _ShowPeople2 = _interopRequireDefault(_ShowPeople);
+
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -26643,9 +26647,9 @@
 	  _createClass(People, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'people' }, _react2.default.createElement('ul', null, _data2.default.people.map(function (person) {
-	        return _react2.default.createElement('li', { key: person.name }, ' ', person.name, ' is ', person.age, ' years old. ');
-	      })));
+	      return _react2.default.createElement('div', { className: 'people' }, _data2.default.people.map(function (p) {
+	        return _react2.default.createElement(_ShowPeople2.default, { person: p });
+	      }));
 	    }
 	  }]);
 
@@ -26666,19 +26670,22 @@
 				"name": "Phillip Jones",
 				"age": 39,
 				"sex": "male",
-				"middleName": "Emerson"
+				"middleName": "Emerson",
+				"id": 1
 			},
 			{
 				"name": "Emerson Jones",
 				"age": 7,
 				"sex": "female",
-				"middleName": "Linda"
+				"middleName": "Linda",
+				"id": 2
 			},
 			{
 				"name": "Everly Jones",
 				"age": 4,
 				"sex": "female",
-				"middleName": "Ann"
+				"middleName": "Ann",
+				"id": 3
 			}
 		]
 	};
@@ -26719,6 +26726,124 @@
 
 	// module
 	exports.push([module.id, ".people {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 80%;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 242 */,
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(244);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var ShowPeople = function (_Component) {
+	  _inherits(ShowPeople, _Component);
+
+	  function ShowPeople(props) {
+	    _classCallCheck(this, ShowPeople);
+
+	    return _possibleConstructorReturn(this, (ShowPeople.__proto__ || Object.getPrototypeOf(ShowPeople)).call(this, props));
+	  }
+
+	  _createClass(ShowPeople, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: 'showCard', key: this.props.person.id }, _react2.default.createElement('h1', null, this.props.person.name), _react2.default.createElement('p', null, 'Middle Name: ', this.props.person.middleName), _react2.default.createElement('p', null, 'Age: ', this.props.person.age), _react2.default.createElement('p', null, 'Sex: ', this.props.person.sex), _react2.default.createElement('img', { src: 'public/window.svg' }));
+	    }
+	  }]);
+
+	  return ShowPeople;
+	}(_react.Component);
+
+	exports.default = ShowPeople;
+
+	ShowPeople.propTypes = {
+	  person: _react2.default.PropTypes.object
+	};
+
+	module.exports = ShowPeople;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(245);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(225)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./ShowPeople.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./ShowPeople.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(224)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".people .showCard {\n  border: 1px solid #00f;\n  border-radius: 14px;\n  padding: 10px;\n}\n.people .showCard h1 {\n  font-size: 2rem;\n}\n.people .showCard img {\n  height: 45px;\n}\n", ""]);
 
 	// exports
 

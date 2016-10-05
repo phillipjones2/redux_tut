@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import data from '../../../public/data.json'
 import './People.styl'
 
+import ShowPeople from '../ShowPeople/ShowPeople.jsx'
+
 export default class People extends Component {
   constructor (props) {
     super(props)
@@ -9,11 +11,9 @@ export default class People extends Component {
   render () {
     return (
       <div className='people'>
-        <ul>
-        {data.people.map((person) => {
-          return <li key={person.name}> {person.name} is {person.age} years old. </li>
-        })}
-        </ul>
+        {data.people.map((p) => (
+          <ShowPeople person={p} />
+        ))}
       </div>
     )
   }

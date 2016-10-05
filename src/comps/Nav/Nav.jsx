@@ -16,7 +16,7 @@ export default class Nav extends Component {
           <li>Stuff</li>
           <Link to="/people"><li>People</li></Link>
         </ul>
-
+        <img src={'public/window.svg'} />
       </nav>
       )
   }

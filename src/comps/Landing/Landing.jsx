@@ -6,7 +6,7 @@ export default class Landing extends Component {
   render () {
     return (
       <div className='landing'>
-        <h1>Hello</h1>
+        <h1 id="landingH1">Hello</h1>
         <MyTitle title="Goodbye" color="peru" />
       </div>
       )
