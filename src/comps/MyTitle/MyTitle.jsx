@@ -5,7 +5,7 @@ class MyTitle extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      fruit: ['apple','grapes']
+      fruit: ['apple', 'grapes']
     }
     this.changeFruit = this.changeFruit.bind(this)
   }
@@ -40,11 +40,9 @@ class MyTitle extends Component {
   }
 }
 
-// MyTitle.propTypes = {
-//   title: React.Protypes.string,
-//   color: React.Protypes.string,
-//   happy: React.PropTypes.string
-// }
+MyTitle.propTypes = {
+
+}
 MyTitle.defaultProps = {
   happy: 'this is a default prop'
 }

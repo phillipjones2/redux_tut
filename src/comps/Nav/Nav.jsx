@@ -13,7 +13,7 @@ export default class Nav extends Component {
         <ul>
           <li>About</li>
           <li>Contact</li>
-          <li>Stuff</li>
+          <Link to="/comments"><li>Comments</li></Link>
           <Link to="/people"><li>People</li></Link>
         </ul>
         <img src={'public/window.svg'} />

@@ -56,6 +56,10 @@
 
 	var _Landing2 = _interopRequireDefault(_Landing);
 
+	var _Comments = __webpack_require__(246);
+
+	var _Comments2 = _interopRequireDefault(_Comments);
+
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -65,7 +69,7 @@
 	var People = __webpack_require__(238);
 
 	var App = function App() {
-	  return React.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory }, React.createElement(_reactRouter.Route, { path: '/', component: _FrameView2.default }, React.createElement(_reactRouter.IndexRoute, { component: _Landing2.default }), React.createElement(_reactRouter.Route, { path: '/people', component: People })));
+	  return React.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory }, React.createElement(_reactRouter.Route, { path: '/', component: _FrameView2.default }, React.createElement(_reactRouter.IndexRoute, { component: _Landing2.default }), React.createElement(_reactRouter.Route, { path: '/people', component: People }), React.createElement(_reactRouter.Route, { path: '/comments', component: _Comments2.default })));
 	};
 
 	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
@@ -26255,7 +26259,7 @@
 	  _createClass(Nav, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('nav', { id: 'navContainer' }, _react2.default.createElement(_reactRouter.Link, { to: '/' }, _react2.default.createElement('h1', null, 'Phillip Emerson Jones')), _react2.default.createElement('ul', null, _react2.default.createElement('li', null, 'About'), _react2.default.createElement('li', null, 'Contact'), _react2.default.createElement('li', null, 'Stuff'), _react2.default.createElement(_reactRouter.Link, { to: '/people' }, _react2.default.createElement('li', null, 'People'))), _react2.default.createElement('img', { src: 'public/window.svg' }));
+	      return _react2.default.createElement('nav', { id: 'navContainer' }, _react2.default.createElement(_reactRouter.Link, { to: '/' }, _react2.default.createElement('h1', null, 'Phillip Emerson Jones')), _react2.default.createElement('ul', null, _react2.default.createElement('li', null, 'About'), _react2.default.createElement('li', null, 'Contact'), _react2.default.createElement(_reactRouter.Link, { to: '/comments' }, _react2.default.createElement('li', null, 'Comments')), _react2.default.createElement(_reactRouter.Link, { to: '/people' }, _react2.default.createElement('li', null, 'People'))), _react2.default.createElement('img', { src: 'public/window.svg' }));
 	    }
 	  }]);
 
@@ -26516,13 +26520,7 @@
 	  return MyTitle;
 	}(_react.Component);
 
-	// MyTitle.propTypes = {
-	//   title: React.Protypes.string,
-	//   color: React.Protypes.string,
-	//   happy: React.PropTypes.string
-	// }
-
-
+	MyTitle.propTypes = {};
 	MyTitle.defaultProps = {
 	  happy: 'this is a default prop'
 	};
@@ -26844,6 +26842,347 @@
 
 	// module
 	exports.push([module.id, ".people .showCard {\n  border: 1px solid #00f;\n  border-radius: 14px;\n  padding: 10px;\n}\n.people .showCard h1 {\n  font-size: 2rem;\n}\n.people .showCard img {\n  height: 45px;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(247);
+
+	var _CommentList = __webpack_require__(249);
+
+	var _CommentList2 = _interopRequireDefault(_CommentList);
+
+	var _CommentForm = __webpack_require__(250);
+
+	var _CommentForm2 = _interopRequireDefault(_CommentForm);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var Comments = function (_Component) {
+	  _inherits(Comments, _Component);
+
+	  function Comments(props) {
+	    _classCallCheck(this, Comments);
+
+	    return _possibleConstructorReturn(this, (Comments.__proto__ || Object.getPrototypeOf(Comments)).call(this, props));
+	  }
+
+	  _createClass(Comments, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: 'comments' }, _react2.default.createElement('h1', null, 'Comments'), _react2.default.createElement(_CommentList2.default, null), _react2.default.createElement(_CommentForm2.default, null));
+	    }
+	  }]);
+
+	  return Comments;
+	}(_react.Component);
+
+	exports.default = Comments;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(248);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(225)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./Comments.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./Comments.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(224)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(253);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var CommentList = function (_Component) {
+	  _inherits(CommentList, _Component);
+
+	  function CommentList(props) {
+	    _classCallCheck(this, CommentList);
+
+	    return _possibleConstructorReturn(this, (CommentList.__proto__ || Object.getPrototypeOf(CommentList)).call(this, props));
+	  }
+
+	  _createClass(CommentList, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: 'commentBox' }, 'Hello, world! I am a CommentList.');
+	    }
+	  }]);
+
+	  return CommentList;
+	}(_react.Component);
+
+	exports.default = CommentList;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(251);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+
+	var CommentForm = function (_Component) {
+	  _inherits(CommentForm, _Component);
+
+	  function CommentForm(props) {
+	    _classCallCheck(this, CommentForm);
+
+	    return _possibleConstructorReturn(this, (CommentForm.__proto__ || Object.getPrototypeOf(CommentForm)).call(this, props));
+	  }
+
+	  _createClass(CommentForm, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: 'commentForm' }, 'Hello, world! I am a CommentForm.');
+	    }
+	  }]);
+
+	  return CommentForm;
+	}(_react.Component);
+
+	exports.default = CommentForm;
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(252);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(225)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./CommentForm.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./CommentForm.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(224)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(254);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(225)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./CommentList.styl", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/stylus-loader/index.js!./CommentList.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(224)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "", ""]);
 
 	// exports
 
