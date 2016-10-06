@@ -8,14 +8,14 @@ import { Router,
 
 import FrameView from './comps/FrameView/FrameView.jsx'
 import Landing from './comps/Landing/Landing.jsx'
-import Comments from './comps/Comments/Comments.jsx'
+import CommentBox from './comps/CommentBox/CommentBox.jsx'
 
 const App = () => (
   <Router history={hashHistory}>
     <Route path='/' component={FrameView} >
       <IndexRoute component={Landing} />
       <Route path='/people' component={People} />
-      <Route path='/comments' component={Comments} />
+      <Route path='/commentbox' component={CommentBox} />
     </Route>
   </Router>
 )

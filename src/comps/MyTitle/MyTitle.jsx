@@ -41,8 +41,11 @@ class MyTitle extends Component {
 }
 
 MyTitle.propTypes = {
-
+  happy: React.PropTypes.string,
+  color: React.PropTypes.string,
+  title: React.PropTypes.string
 }
+
 MyTitle.defaultProps = {
   happy: 'this is a default prop'
 }

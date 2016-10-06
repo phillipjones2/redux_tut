@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import './Comments.styl'
+import './CommentBox.styl'
 import CommentList from '../CommentList/CommentList.jsx'
 import CommentForm from '../CommentForm/CommentForm.jsx'
 
-class Comments extends Component {
+class CommentBox extends Component {
   constructor (props) {
     super(props)
   }
   render () {
     return (
-      <div className="comments">
+      <div className="commentBox">
         <h1>Comments</h1>
         <CommentList />
         <CommentForm />
@@ -18,4 +18,4 @@ class Comments extends Component {
   }
 }
 
-export default Comments
+export default CommentBox

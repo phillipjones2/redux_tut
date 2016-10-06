@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './CommentList.styl'
+import Comment from '../Comment/Comment.jsx'
 
 class CommentList extends Component {
   constructor (props) {
@@ -7,8 +8,9 @@ class CommentList extends Component {
   }
   render () {
     return (
-      <div className="commentBox">
-        Hello, world! I am a CommentList.
+      <div className="commentList">
+        <Comment author="Pete Hunt">This is one comment</Comment>
+        <Comment author="Phillip Jones">Another Comment</Comment>
       </div>
     )
   }
