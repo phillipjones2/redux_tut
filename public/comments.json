@@ -1,0 +1,19 @@
+{
+  "comments": [
+    {
+      "id": 1,
+      "author": "Pete Hunter",
+      "text": "Comment comment here"
+    },
+    {
+      "id": 2,
+      "author": "Phillip Jones",
+      "text": "I'm a developer"
+    },
+    {
+      "id": 3,
+      "author": "Colton Coltier",
+      "text": "Framework Shmamework"
+    }
+  ]
+}

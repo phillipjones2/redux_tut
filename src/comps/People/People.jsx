@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import data from '../../../public/data.json'
+import data from '../../../public/people.json'
 import './People.styl'
 
 import ShowPeople from '../ShowPeople/ShowPeople.jsx'

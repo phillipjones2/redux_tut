@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../../styles/reset.styl'
+import '../../styles/variables.styl'
 import './FrameView.styl'
 
 import Nav from '../Nav/Nav.jsx'

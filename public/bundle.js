@@ -25758,6 +25758,8 @@
 
 	__webpack_require__(222);
 
+	__webpack_require__(261);
+
 	__webpack_require__(226);
 
 	var _Nav = __webpack_require__(228);
@@ -25840,7 +25842,7 @@
 
 	exports = module.exports = __webpack_require__(224)();
 	// imports
-
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ruslan+Display);", ""]);
 
 	// module
 	exports.push([module.id, "html,\nbody,\ndiv,\nsection,\nnav,\nheader,\nfooter,\naside,\nul,\nli,\nol,\nform,\nbutton,\nimg,\nspan,\ninput,\ntextarea,\nselect,\noption,\nsmall,\nstrong,\nem,\nsvg,\na,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np {\n  margin: 0;\n  padding: 0;\n  border: none;\n  outline: none;\n  box-sizing: border-box;\n}\nhtml {\n  width: 100%;\n  height: 100%;\n  font-size: 62.5%;\n}\nbody {\n  font-size: 1.6rem;\n  font-family: 'Lato', sans-serif;\n  font-weight: 300;\n  line-height: 1.45;\n  color: #000;\n  width: 100%;\n  height: 100%;\n}\na {\n  color: #000;\n  text-decoration: none;\n}\na:active {\n  color: #000;\n}\na:visited {\n  color: #000;\n}\nh1 {\n  font-size: 3.8rem;\n}\nh2 {\n  font-size: 3.2rem;\n}\n#root {\n  width: 100%;\n}\n", ""]);
@@ -26606,9 +26608,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _data = __webpack_require__(239);
+	var _people = __webpack_require__(263);
 
-	var _data2 = _interopRequireDefault(_data);
+	var _people2 = _interopRequireDefault(_people);
 
 	__webpack_require__(240);
 
@@ -26650,7 +26652,7 @@
 	  _createClass(People, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'people' }, _data2.default.people.map(function (p) {
+	      return _react2.default.createElement('div', { className: 'people' }, _people2.default.people.map(function (p) {
 	        return _react2.default.createElement(_ShowPeople2.default, { person: p });
 	      }));
 	    }
@@ -26664,36 +26666,7 @@
 	module.exports = People;
 
 /***/ },
-/* 239 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		"people": [
-			{
-				"name": "Phillip Jones",
-				"age": 39,
-				"sex": "male",
-				"middleName": "Emerson",
-				"id": 1
-			},
-			{
-				"name": "Emerson Jones",
-				"age": 7,
-				"sex": "female",
-				"middleName": "Linda",
-				"id": 2
-			},
-			{
-				"name": "Everly Jones",
-				"age": 4,
-				"sex": "female",
-				"middleName": "Ann",
-				"id": 3
-			}
-		]
-	};
-
-/***/ },
+/* 239 */,
 /* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -26886,6 +26859,10 @@
 
 	var _Comment2 = _interopRequireDefault(_Comment);
 
+	var _comments = __webpack_require__(264);
+
+	var _comments2 = _interopRequireDefault(_comments);
+
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -26920,7 +26897,10 @@
 	  _createClass(CommentList, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'commentList' }, _react2.default.createElement(_Comment2.default, { author: 'Pete Hunt' }, 'This is one comment'), _react2.default.createElement(_Comment2.default, { author: 'Phillip Jones' }, 'Another Comment'));
+	      var commentNodes = _comments2.default.comments.map(function (comment) {
+	        return _react2.default.createElement(_Comment2.default, { author: comment.author, key: comment.id }, comment.text);
+	      });
+	      return _react2.default.createElement('div', { className: 'commentList' }, commentNodes);
 	    }
 	  }]);
 
@@ -27144,13 +27124,27 @@
 	  function CommentBox(props) {
 	    _classCallCheck(this, CommentBox);
 
-	    return _possibleConstructorReturn(this, (CommentBox.__proto__ || Object.getPrototypeOf(CommentBox)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (CommentBox.__proto__ || Object.getPrototypeOf(CommentBox)).call(this, props));
+
+	    _this.state = {
+	      h1ClassName: true
+	    };
+	    _this.changeClass = _this.changeClass.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(CommentBox, [{
+	    key: 'changeClass',
+	    value: function changeClass() {
+	      this.setState({
+	        h1ClassName: !this.state.h1ClassName
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'commentBox' }, _react2.default.createElement('h1', null, 'Comments'), _react2.default.createElement(_CommentList2.default, null), _react2.default.createElement(_CommentForm2.default, null));
+	      var commentBoxClass = this.state.h1ClassName ? 'commentBoxH1' : 'commentBoxH1Alt';
+	      return _react2.default.createElement('div', { className: 'commentBox' }, _react2.default.createElement('h1', { className: commentBoxClass }, 'Comments', _react2.default.createElement('em', { onClick: this.changeClass }, '.')), _react2.default.createElement(_CommentList2.default, null), _react2.default.createElement(_CommentForm2.default, null));
 	    }
 	  }]);
 
@@ -27191,10 +27185,10 @@
 
 	exports = module.exports = __webpack_require__(224)();
 	// imports
-
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ruslan+Display);", ""]);
 
 	// module
-	exports.push([module.id, ".commentBox {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 100%;\n  background-color: #cd853f;\n  background: -webkit-linear-gradient(top, #cd853f, #ffc0cb);\n}\n.commentBox h1 {\n  letter-spacing: 30px;\n  text-transform: uppercase;\n  transform: rotate(3deg);\n  background: #ffc0cb;\n  padding: 5px 20px 5px 40px;\n  border-radius: 14px;\n  box-shadow: 0 0 10px 5px #ffc0cb;\n}\n", ""]);
+	exports.push([module.id, ".commentBox {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 100%;\n  background-color: #cd853f;\n  background: -webkit-linear-gradient(top, #cd853f, #ffc0cb);\n}\n.commentBox h1 {\n  letter-spacing: 30px;\n  text-transform: uppercase;\n  transform: rotate(3deg);\n  padding: 5px 20px 5px 40px;\n  border-radius: 14px;\n}\n.commentBoxH1 {\n  font-family: 'Ruslan Display', cursive;\n  color: #545c52;\n  background: #ffc0cb;\n  box-shadow: 0 0 10px 5px #ffc0cb;\n}\n.commentBoxH1Alt {\n  font-family: 'Ruslan Display', cursive;\n  color: #545c52;\n  background: #00f;\n  box-shadow: 0 0 10px 5px #ffc0cb;\n}\n", ""]);
 
 	// exports
 
@@ -27314,6 +27308,100 @@
 
 	// exports
 
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(262);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(225)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./variables.styl", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./variables.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(224)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Ruslan+Display);", ""]);
+
+	// module
+	exports.push([module.id, "\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 263 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"people": [
+			{
+				"name": "Phillip Jones",
+				"age": 39,
+				"sex": "male",
+				"middleName": "Emerson",
+				"id": 1
+			},
+			{
+				"name": "Emerson Jones",
+				"age": 7,
+				"sex": "female",
+				"middleName": "Linda",
+				"id": 2
+			},
+			{
+				"name": "Everly Jones",
+				"age": 4,
+				"sex": "female",
+				"middleName": "Ann",
+				"id": 3
+			}
+		]
+	};
+
+/***/ },
+/* 264 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"comments": [
+			{
+				"id": 1,
+				"author": "Pete Hunter",
+				"text": "Comment comment here"
+			},
+			{
+				"id": 2,
+				"author": "Phillip Jones",
+				"text": "I'm a developer"
+			},
+			{
+				"id": 3,
+				"author": "Colton Coltier",
+				"text": "Framework Shmamework"
+			}
+		]
+	};
 
 /***/ }
 /******/ ]);
